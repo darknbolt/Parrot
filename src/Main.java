@@ -1,7 +1,7 @@
-import Views.PFrame;
+import Controllers.AppController;
 
 public class Main {
     public static void main(String[] args) {
-        new PFrame();
+        new AppController().start();
     }
 }
