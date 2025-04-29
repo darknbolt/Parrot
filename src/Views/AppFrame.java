@@ -22,7 +22,7 @@ public class AppFrame extends JFrame {
     }
 
     public void initialize(){
-        JLabel label = new JLabel(new ImageIcon(System.getProperty("user.dir") + "\\resources\\Images\\loading.png"));
+        JLabel label = new JLabel(new ImageIcon("Images\\loading.png"));
         label.setBounds(70, 300, 609, 96);
         this.getContentPane().add(label);
 
