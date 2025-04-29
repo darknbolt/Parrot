@@ -1,23 +1,22 @@
 package Views;
 
+import Controllers.DataController;
+
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicBorders;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
-import java.util.stream.StreamSupport;
 
 public class AppFrame extends JFrame {
-    private JPanel panel;
+    private DataController dataController;
     public AppFrame(){
         this.setTitle("Parrot");
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dataController = new DataController();
         this.setSize(750, 750);
-        this.setContentPane(panel = new JPanel());
-        panel.setLayout(null);
-        panel.setBackground(Color.white);
+        this.setContentPane(new JPanel());
+        this.getContentPane().setLayout(null);
+        this.getContentPane().setBackground(Color.white);
         this.setResizable(true);
         this.setVisible(true);
     }
@@ -28,6 +27,19 @@ public class AppFrame extends JFrame {
         this.getContentPane().add(label);
 
         //TODO: Initialize Objects and Data
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                dataController.generateClient();
+            }
+        }.start();
+
+        try{
+            Thread.sleep(Duration.ofSeconds(5));
+        }catch (InterruptedException e){
+            System.err.println("Interrupted Initialization: " + e.getMessage());
+        }
 
         this.getContentPane().remove(label);
         this.getContentPane().repaint();
