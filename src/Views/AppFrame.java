@@ -4,6 +4,7 @@ import Controllers.DataController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.time.Duration;
 
 public class AppFrame extends JFrame {
@@ -22,7 +23,8 @@ public class AppFrame extends JFrame {
     }
 
     public void initialize(){
-        JLabel label = new JLabel(new ImageIcon("Images\\loading.png"));
+        if(new File("Images").exists()) System.out.println("File exists");
+        JLabel label = new JLabel(new ImageIcon("Images/loading.png"));
         label.setBounds(70, 300, 609, 96);
         this.getContentPane().add(label);
 
@@ -43,6 +45,5 @@ public class AppFrame extends JFrame {
 
         this.getContentPane().remove(label);
         this.getContentPane().repaint();
-        System.out.println("Complete!");
     }
 }
