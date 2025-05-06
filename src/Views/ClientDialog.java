@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 
 public class ClientDialog extends JDialog {
     private String nickname;
+
     public ClientDialog(){
         this.setTitle("Client Registration");
         this.setLocation(300, 300);
@@ -28,7 +29,10 @@ public class ClientDialog extends JDialog {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                if(e.getKeyCode() != KeyEvent.VK_ENTER && nicknameField.getText().equals("Nickname")){
+                    nicknameField.setText(e.getKeyChar() + "");
+                }
+                else if(e.getKeyCode() == KeyEvent.VK_ENTER){
                     nickname = nicknameField.getText();
                     dispose();
                 }

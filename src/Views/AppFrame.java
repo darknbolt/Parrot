@@ -5,7 +5,9 @@ import Controllers.DataController;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.net.URL;
 import java.time.Duration;
+import java.util.Objects;
 
 public class AppFrame extends JFrame {
     private DataController dataController;
@@ -23,8 +25,11 @@ public class AppFrame extends JFrame {
     }
 
     public void initialize(){
-        if(new File("Images").exists()) System.out.println("File exists");
-        JLabel label = new JLabel(new ImageIcon("Images/loading.png"));
+        URL resource = getClass().getResource("/Images/loading.png");
+        if(resource == null){
+            throw new RuntimeException("Image not found!");
+        }
+        JLabel label = new JLabel(new ImageIcon(resource));
         label.setBounds(70, 300, 609, 96);
         this.getContentPane().add(label);
 
