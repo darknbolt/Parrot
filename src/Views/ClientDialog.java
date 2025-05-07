@@ -30,7 +30,7 @@ public class ClientDialog extends JDialog {
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 if(e.getKeyCode() != KeyEvent.VK_ENTER && nicknameField.getText().equals("Nickname")){
-                    nicknameField.setText(e.getKeyChar() + "");
+                    nicknameField.setText("");
                 }
                 else if(e.getKeyCode() == KeyEvent.VK_ENTER){
                     nickname = nicknameField.getText();

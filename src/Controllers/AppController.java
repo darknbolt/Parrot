@@ -6,6 +6,6 @@ public class AppController {
 
     public void start(){
         frame.initialize();
-
+        frame.run();
     }
 }
