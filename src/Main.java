@@ -1,7 +1,9 @@
-import Controllers.AppController;
+import Views.App;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        new AppController().start();
+        SwingUtilities.invokeLater(App::new);
     }
 }

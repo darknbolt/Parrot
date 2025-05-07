@@ -1,18 +1,15 @@
 package Views;
 
-import Components.Client;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class ClientDialog extends JDialog {
+public class UsernamePanel extends JDialog {
     private String nickname;
 
-    public ClientDialog(){
+    public UsernamePanel(){
         this.setTitle("Client Registration");
         this.setLocation(300, 300);
         this.setLayout(null);
